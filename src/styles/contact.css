@@ -1,0 +1,25 @@
+#about{
+    padding-top: 200px;
+    display: flex;
+    gap: 150px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+h2{
+    margin-bottom: 20px;
+    border-bottom: 2px solid #6745FF;
+}
+
+h3 a{
+    transition: color 0.5s ease;
+    text-decoration: none;
+    color: white;
+}
+h3 a:hover {
+    color: #1C0096;
+}
+
+.emails, .phone, .social{
+    height: 50px;
+}

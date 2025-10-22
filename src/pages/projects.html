@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/header.css">  
+    <link rel="stylesheet" href="../styles/projects.css"> 
+
+    <script type=module  src="../javascript/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+
+</head>
+<body>
+    <my-header></my-header>
+    
+    <main id="content">
+        <section id="about">
+
+            <div id="titleBox">
+                <h1 class="title">
+                    <span>Main</span> projects  
+                </h1>   
+            </div>
+
+            <div id="getCodes">
+                
+            <div id="codes">
+                <div class="nameCode">
+                    <h3>
+                        Stack
+                    </h3>
+                </div>
+                <div class="code-box"><pre><code>
+template &lt;typename T&gt;
+class node{
+    node(const &lt;T&gt;& info) :data(info), next(nullptr) {}
+    T data;
+    node&lt;T&gt;* next;
+}
+
+template &lt;typename T&gt;
+class stack{
+    public:
+        stack();
+        stack(const stack&lt;T&gt;&);
+        ~stack();
+        void swap(stack&lt;T&gt;&);
+        stack&lt;T&gt;& operator= (stack&lt;T&gt;);
+    private:
+        node&lt;T&gt;* tos;
+}
+
+template &lt;typename T&gt;
+stack&lt;T&gt;::stack() : tos(nullptr) {}
+
+template &lt;typename T&gt;
+stack&lt;T&gt;::~stack(){
+    node&lt;T&gt;* temp;
+    while(tos != nullptr){
+        temp = tos;
+        tos = tos->next;
+        delete temp;
+    }
+}
+
+
+
+template &lt;typename T&gt;
+stack&lt;T&gt;::stack(const stack&lt;T&gt;& actual){
+    if(actual.tos == nullptr) return;
+    
+    tos = new node&lt;T&gt;(actual.tos->data);
+    node&lt;T&gt;* bos = tos;
+    node&lt;T&gt;* temp = actual.tos->next;
+    
+    while(temp != 0){
+        bos->next = new node&lt;T&gt;(temp->data);
+        bos = bos->next;
+        temp = temp->next;
+    }
+}
+
+
+template &lt;typename T&gt;
+void stack&lt;T&gt;::swap(stack&lt;T&gt;& other){
+    node&lt;T&gt;* temp = tos;
+    tos = toher.tos;
+    other.tos = temp;
+}
+
+template &lt;typename T&gt;
+stack&lt;T&gt;& stack&lt;T&gt;::operator=(stack&lt;T&gt; rhs){
+    swap(rhs);
+    return *this;
+}</code></pre></div>
+
+
+            </div>
+
+            <div id="codes">
+                <div class="nameCode">
+                    <h3>
+                        Queue
+                    </h3>
+                </div>
+                <div class="code-box"><pre><code>
+template &lt;typename T&gt;
+class node{
+    node(const &lt;T&gt;& info) :data(info) , next(nullptr) {}
+    T data;
+    node&lt;T&gt;* next;
+}
+
+template &lt;typename T&gt;
+class queue{
+    public:
+        queue();
+        queue(const queue&lt;T&gt;&);
+        ~queue();
+        void swap(queue&lt;T&gt;&);
+        queue&lt;T&gt;& operator= (queue&lt;T&gt;);
+    private:
+        node&lt;T&gt;* beg;
+        node&lt;T&gt;* end;
+}
+
+template &lt;typename T&gt;
+queue&lt;T&gt;::queue() : beg(nullptr), end(nullptr) {}
+
+template &lt;typename T&gt;
+queue&lt;T&gt;::~queue(){
+    node&lt;T&gt;* temp;
+    while(beg!=nullptr){
+        temp = beg;
+        beg = beg->next;
+        delete temp;
+    }
+    end = nullptr;
+}
+
+template &lt;typename T&gt;
+queue&lt;T&gt;::queue(const queue&lt;T&gt;& actual){
+    if (actual.beg == nullptr){
+        beg = end = nullptr;
+        return;
+    }
+
+    beg = new node&lt;T&gt;(actual.beg->data);
+    node&lt;T&gt;* curr_new = beg;
+    node&lt;T&gt;* temp = actual.beg->next;
+    
+    while(temp != nullptr){
+        curr_new->next = new node&lt;T&gt;(temp->data);
+        curr_new = curr_new->next;
+        temp = temp->next;
+    }
+    end = curr_new;
+}
+
+template &lt;typename T&gt;
+void queue&lt;T&gt;::swap(queue&lt;T&gt;& other){
+    node&lt;T&gt;*temp = beg;
+    beg = other.beg;
+    otgher.beg = temp;
+
+    temp = end;
+    end = other.end;
+    ontehr.end = temp;
+}
+
+template &lt;typename T&gt;
+queue&lt;T&gt;& queue&lt;T&gt;::operator= (queue&lt;T&gt; rhs){
+    swap(rhs);
+    return *this;
+}
+
+template &lt;typename T&gt;
+void queue&lt;T&gt;::enqueue(const T& item){
+    node&lt;T&gt;* newNode = new node&lt;T&gt;(item);
+    if (end == nullptr){
+        beg = end = newNode;
+    }
+    else{
+        end->next = newNode;
+        end = newNode;
+    }
+}
+
+template &lt;typename T&gt;
+T queue&lt;T&gt;::dequeue(){
+    if (beg == nullptr) return;
+    node&lt;T&gt;* temp = beg;
+    T value = beg->data;
+    beg = beg->next;
+    if (beg==nullptr){
+        end ==nullptr;
+    }
+    delete temp;
+    return value;
+}</code></pre></div>
+
+
+            </div>
+        
+             <div id="codes">
+                <div class="nameCode">
+                    <h3>
+                        Darray
+                    </h3>
+                </div>
+                <div class="code-box"><pre><code>
+template &lt;typename T&gt;
+class Darray{
+public:
+    Darray() : ptr(0), cap(0) {};
+    Darray(int capacity) {return cap; };
+    Darray(const Darray&lt;T&gt;& other);
+    ~Darray() {delete[] ptr; };
+    
+    Darray&lt;T&gt;& operator=(const Darray&lt;T&gt;& other);
+    Darray&lt;T&gt;& operator=(Darray&lt;T&gt;& other) {swap(other); return *this; };
+    
+    void swap(Darray&lt;T&gt;& other);
+    void resize(int newCap);
+
+
+private:
+    T *ptr;
+    int cap;
+}
+
+template &lt;typename T&gt;
+Darray::Darray(const Darray&lt;T&gt;& other){
+    cap = other.cap;
+    ptr = new T[cap];
+    for(int i = 0; i &lt; cap; ++i){
+        ptr[i] = other.ptr[i];
+    }
+}
+
+template &lt;typename T&gt;
+Darray&lt;T&gt;& Darray::operator=(const Darray&lt;T&gt;& other){
+    if(this != other){
+        delete[] ptr;
+        cap = other.cap;
+        ptr = new T[cap];
+        for(int i =0; i &lt; cap; ++i){
+            ptr[i] = other.ptr[i];
+        }
+    }return *this;
+}
+
+template &lt;typename T&gt;
+void Darray::swap(Darray&lt;T&gt;& other){
+    T *temp = ptr;
+    ptr = other.ptr;
+    other.ptr = temp;
+
+    int tempCap = cap;
+    cap = other.cap;
+    other.cap = tempCap;
+}
+
+template &lt;typename T&gt;
+void Darray::resize(int newCap){
+     int smaller = cap;
+    if (smaller > newCap) smaller = newCap;
+    T *temp = new T[newCap];
+    for(int i = 0; i &lt; smaller; ++i){
+        temp[i] = ptr[i];
+    }
+    delete[] ptr;
+    cap = newCap;
+    ptr = temp;
+}</code></pre></div>
+
+
+            </div>
+        
+        </div>
+            
+        </section>
+    </main>
+</body>
+</html>

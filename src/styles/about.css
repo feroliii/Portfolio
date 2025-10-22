@@ -1,0 +1,55 @@
+#about {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#titleBox{
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#informationBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    height: 350px;
+}
+
+#MyPicture {
+    width: 35%;
+    height: 100%;
+}
+
+#MyPicture img{
+    height: 100%;
+    width: 100%;
+}
+
+#informationText {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 10px;
+}
+
+#textFather {
+    height: 55%;
+    text-align: end;
+    display: flex;
+    justify-content: end;
+}
+
+#textMother {
+    height: 30%;
+}
+
+.textBox1{
+    width: 80%;
+    height: 50%;
+}
+
+.textBox2 {
+    width: 80%;
+}
+

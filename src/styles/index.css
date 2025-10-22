@@ -1,0 +1,116 @@
+#home {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+#cta {
+    background-color: transparent;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+    flex-shrink: 1;
+}
+
+#lineH1 {
+    width: 150px;
+    border: 1px solid white;
+}
+
+#titleBox {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+#titleBox span{
+    color: #6745FF;
+}
+
+#titleBox h1{
+    color: white;
+}
+
+#lineH2 {
+    margin-left: 32%;
+    width: 300px;
+    border: 1px solid white;
+}
+
+#descriptionBox {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+#information {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 100px;
+    gap: 15px;
+}
+#cta_buttons{
+    width: 155px;
+}
+
+.social-media-buttons{
+    width: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6745FF;
+    border-radius: 10px;
+    padding-top: 4px;
+    transition: background-color 1s ease;
+}
+.social-media-buttons:hover {
+    background-color: #1C0096;
+    
+    color: white;
+}
+
+
+.social-media-buttons i{
+    font-size: 30px;
+    color: white;
+}
+
+#banner {
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    width: 540px;
+    height: 500px;
+    z-index: 2;
+    right: 0;
+}
+
+#banner img{
+    height: 100%;
+    width: 100%;
+    border-radius:  40% 30% 0% 20%;
+    right: 0;
+}
+
+.shape{
+    background-color: rgb(15, 15, 15);
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    width: 550px;
+    height: 100%;
+    border-radius: 40% 30% 0% 20%;
+    flex-shrink: 1;
+}
+
